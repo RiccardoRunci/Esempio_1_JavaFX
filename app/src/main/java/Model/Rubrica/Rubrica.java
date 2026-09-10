@@ -38,8 +38,27 @@ public class Rubrica
         return "Nome Rubrica: "+this.nomeRubrica+"\n";
     }
     public int stampaQuantitaPersoneSalvate() { return this.insiemePersone.size(); }
+    public boolean aggiungiPersonaInRubrica(Persona pers)
+    {
+        if (pers!=null && pers.getNomePersona()!=null && pers.getCognomePersona()!=null && pers.getIdPersona()>0)
+        {
+            if (pers.getCognomePersona().chars().allMatch(Character::isDigit))
+                return false;
+            this.insiemePersone.add(pers);
+            return true;
+        }
+        else
+            return false;
+    }
+    public boolean rimuoviPersonaDaRubrica(Persona pers)
+    {
+        if(this.insiemePersone.contains(pers))
+        {
+            this.insiemePersone.remove(pers);
+            return true;
+        }
+        return false;
+    }
     /*todo:
-    *   1)Aggiungi persona in rubrica!
-    *  2)elimina Persona dalla rubrica!
     *  3)stampa tutte le persone della rubrica!*/
 }
