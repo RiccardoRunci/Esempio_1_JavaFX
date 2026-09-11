@@ -1,5 +1,8 @@
 package Model.Persona;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+
 public class Persona
 {
     private int  idPersona;
@@ -39,5 +42,24 @@ public class Persona
     public int hashCode()
     {
         return java.util.Objects.hash(this.nomePersona, this.cognomePersona, this.idPersona);
+    }
+
+    public boolean salvaPersona(String id,String Nome, String Cognome)
+    {
+        System.out.println("Persona da salvare:"+id+" "+Nome+" "+Cognome);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("NON ANCORA IMPLEMENTATO!");
+        alert.setHeaderText("Sei sicuro?");
+        alert.setContentText("Vuoi procedere?");
+
+        alert.showAndWait().ifPresent(response ->
+        {
+            if (response == ButtonType.OK)
+            {
+                System.out.println("Hai premuto OK");
+            }
+        });
+
+        return true;
     }
 }
